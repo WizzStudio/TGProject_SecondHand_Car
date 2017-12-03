@@ -11,5 +11,34 @@
 		<input type="text" name="id">
 		<input type="submit" name="提交">
 	</form>
+	
+	<form action="admin/tg_carSelectAllAction.action">
+		<input type="submit" name="提交">
+	</form>
+	
+	<form action="admin/tg_carDeleteByIdAction.action">
+		<input type="text" name="id">
+		<input type="submit" name="提交">
+	</form>
+	
+	<form action="admin/tg_carDeleteAllAction.action">
+		<input type="submit" name="提交">
+	</form>
+	更新价格
+	<form action="admin/tg_carUpdatePriceAction.action">
+		<input type="text" name="car.cid">
+		<input type="text" name="car.price">
+		<input type="submit" name="提交">
+	</form>
+	
+	<form action="admin/tg_carUpdateBrandAction.action">
+		<input type="text" name="car.cid">
+		<input type="text" name="car.brand">
+		<input type="submit" name="提交">
+	</form>
+	
+	<form action="admin/tg_carPagerAction.action">
+		<input type="submit" name="提交">
+	</form>
 </body>
 </html>

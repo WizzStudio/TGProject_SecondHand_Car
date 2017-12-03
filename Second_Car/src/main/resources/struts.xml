@@ -25,7 +25,6 @@
     <constant name="struts.enable.SlashesInActionNames" value="false" />
     <!-- 允许标签中使用表达式语法 -->
     <constant name="struts.tag.altSyntax" value="true" />
-    
     <!-- 登录 -->
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="tg_managerAction" class="com.tg.action.TG_ManagerAction">
@@ -35,8 +34,39 @@
 	</package>
 	<!-- 管理 -->
  	<package name="admin" namespace="/admin" extends="struts-default">
+ 		<!-- 按id查询 -->
  		<action name="tg_carSelectByIdAction" class="com.tg.action.TG_CarSelectByIdAction">
  			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 查询所有 -->
+ 		<action name="tg_carSelectAllAction" class="com.tg.action.TG_CarSelectAllAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 按id删除 -->
+ 		<action name="tg_carDeleteByIdAction" class="com.tg.action.TG_CarDeleteByIdAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 全部删除 -->
+ 		<action name="tg_carDeleteAllAction" class="com.tg.action.TG_CarDeleteAllAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 更新价格 -->
+ 		<action name="tg_carUpdatePriceAction" class="com.tg.action.TG_CarUpdatePriceAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 更新种类 -->
+ 		<action name="tg_carUpdateBrandAction" class="com.tg.action.TG_CarUpdateBrandAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 分页查询 -->
+ 		<action name="tg_carPagerAction" class="com.tg.action.TG_CarPagerAction">
+ 			<result name="success">/Query.jsp</result>
  			<result name="error">/error.jsp</result>
  		</action>
  	</package>

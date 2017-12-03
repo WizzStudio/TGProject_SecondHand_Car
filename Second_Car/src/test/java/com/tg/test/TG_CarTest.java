@@ -25,4 +25,12 @@ public class TG_CarTest {
 	public void test2(){
 		tcs.selectAll();
 	}
+	@Test
+	public void test3(){
+		tcs.deleteById(0);
+	}
+	@Test
+	public void test4(){
+		tcs.deleteAll();
+	}
 }

@@ -16,5 +16,12 @@
         
      <bean id="TG_ManagerAction" class="com.tg.action.TG_ManagerAction"/>
      <!-- carAction -->
-     <bean id="TG_CarSelectByIdAction" class="com.tg.action.TG_CarSelectByIdAction"/> 
+     <bean id="TG_CarSelectByIdAction" class="com.tg.action.TG_CarSelectByIdAction"/>
+     <bean id="TG_CarSelectAllAction" class="com.tg.action.TG_CarSelectAllAction"/>
+     <bean id="TG_CarDeleteByIdAction" class="com.tg.action.TG_CarDeleteByIdAction"/>
+     <bean id="TG_CarDeleteAllAction" class="com.tg.action.TG_CarDeleteAllAction"/>
+     <bean id="TG_CarUpdatePriceAction" class="com.tg.action.TG_CarUpdatePriceAction"/>
+     <bean id="TG_CarUpdateBrandAction" class="com.tg.action.TG_CarUpdateBrandAction"/>
+     <!--carpageAction  -->
+     <bean id="TG_CarPageAction" class="com.tg.action.TG_CarPagerAction"/>
 </beans>

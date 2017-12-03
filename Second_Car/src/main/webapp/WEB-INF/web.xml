@@ -29,6 +29,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 					classpath:applicationContext.xml
+					classpath:strutsBean.xml
 			</param-value>
 		</context-param>
 

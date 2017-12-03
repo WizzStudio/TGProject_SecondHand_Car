@@ -5,7 +5,7 @@ import java.util.List;
 import com.tg.domain.TG_Car;
 
 public interface TG_ActionUtil {
-	public List selectById(int id);
+public List selectById(int id);
 	
 	public List selectAll();
 	

@@ -28,13 +28,13 @@ public class TG_CarServiceImp implements TG_CarService {
 	@Override
 	public boolean deleteById(int id) {
 		// TODO Auto-generated method stub
-		return false;
+		return tcd.deleteById(id);
 	}
 
 	@Override
 	public boolean deleteAll() {
 		// TODO Auto-generated method stub
-		return false;
+		return tcd.deleteAll();
 	}
 
 	@Override
