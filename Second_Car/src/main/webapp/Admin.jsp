@@ -44,6 +44,6 @@
 			id:<input type="text" name="id"/>   
          	请选择需要上传的文件：<input type="file" id="dofile" name="file"/><br />  
          	<input type="submit" value="upload"/>
-     </form> >
+     </form> 
 </body>
 </html>

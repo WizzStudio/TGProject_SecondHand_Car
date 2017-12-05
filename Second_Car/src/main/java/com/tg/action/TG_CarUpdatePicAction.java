@@ -7,10 +7,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.regex.Pattern;
 
-import org.apache.commons.io.FileUtils;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tg.service.TG_CarupdateService;
 
@@ -71,6 +73,7 @@ public class TG_CarUpdatePicAction extends ActionSupport {
 		{
 			return ERROR;
 		}
+		ActionContext.getContext().getSession().put("fileName", fileFileName);
 		String rootName=ServletActionContext.getServletContext().getRealPath(root);
 		String relativePath=root+"/"+fileFileName;
 //		System.out.println(rootName);
