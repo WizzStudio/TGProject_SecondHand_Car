@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -63,28 +64,34 @@ public class TG_CarUpdatePicAction extends ActionSupport {
 		
 		System.out.println(file);
 		System.out.println(fileFileName);
-		
+		System.out.println(fileContentType);
+		//判断是否是图片
+		String pattern = "image*";
+		if(!Pattern.matches(pattern, fileContentType))
+		{
+			return ERROR;
+		}
 		String rootName=ServletActionContext.getServletContext().getRealPath(root);
 		String relativePath=root+"/"+fileFileName;
-		System.out.println(rootName);
+//		System.out.println(rootName);
 		File targetFile=new File(rootName,fileFileName);
 		
 		
-		FileUtils.copyFile(file, targetFile);
+		//FileUtils.copyFile(file, targetFile);
 		InputStream fin=new FileInputStream(file);
-		byte[]buff=new byte[1024];
+		byte[] buff=new byte[1024];
 		int len=fin.available();
-		System.out.println(len);
+//		System.out.println(len);
 		OutputStream fou=new FileOutputStream(targetFile);
 		while((len=fin.read(buff))>0){
 			fou.write(buff, 0, len);
 		}
-		fin.close();
+		fin.close();                                                               
 		fou.close();
 		
 		
 		tcus.updatePic(relativePath, id);
-		System.out.println("success");
+//		System.out.println("success");
 		return SUCCESS;
 	}
 }
