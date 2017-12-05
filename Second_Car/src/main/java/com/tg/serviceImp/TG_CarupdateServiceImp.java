@@ -25,7 +25,7 @@ public class TG_CarupdateServiceImp implements TG_CarupdateService {
 	@Override
 	public boolean updatePic(String pic, int id) {
 		// TODO Auto-generated method stub
-		return false;
+		return tcud.updatePic(pic, id);
 	}
 
 }

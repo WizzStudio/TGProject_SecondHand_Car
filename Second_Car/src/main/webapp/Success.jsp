@@ -8,5 +8,6 @@
 </head>
 <body>
 	SUCCESS
+	 qq:<img src="TG_Photo/te.jpg">  
 </body>
 </html>

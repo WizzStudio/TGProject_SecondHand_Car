@@ -52,6 +52,12 @@ public class TG_CarUpdateDaoImp implements TG_CarUpdateDao {
 	@Override
 	public boolean updatePic(String pic, int id) {
 		// TODO Auto-generated method stub
+		TG_Car car=(TG_Car) getSession().get(TG_Car.class, id);
+		if(car!=null){
+			car.setPic(pic);
+			getSession().update(car);
+			return true;
+		}
 		return false;
 	}
 	

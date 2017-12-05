@@ -69,5 +69,10 @@
  			<result name="success">/Query.jsp</result>
  			<result name="error">/error.jsp</result>
  		</action>
+ 		<!-- 更新图片 -->
+ 		<action name="tg_carUpdatePicAction" class="com.tg.action.TG_CarUpdatePicAction">
+ 			<result name="success">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
  	</package>
 </struts>

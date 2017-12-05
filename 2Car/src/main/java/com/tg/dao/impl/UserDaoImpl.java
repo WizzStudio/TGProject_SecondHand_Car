@@ -2,25 +2,31 @@ package com.tg.dao.impl;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.tg.dao.UserDao;
 import com.tg.domain.User;
-
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
-
+@Repository
+public class UserDaoImpl implements UserDao {
+	@Autowired
+	private SessionFactory sessionFactory;
+	private Session getSession(){
+		return sessionFactory.getCurrentSession();
+	}
+	
 	@Override
 	public boolean addUser(User user) {
-
-		String 	queryString = "from User where username ="+user.getUsername();
-		List<User> lists = this.getHibernateTemplate().find(queryString);
-		if(lists.size()==0)
-		{
+		// TODO Auto-generated method stub
+		if(user==null){
 			return false;
-		}else{
-			this.getHibernateTemplate().save(user);
-			return true;
 		}
+		getSession().save(user);
+		return true;
 	}
+
+	
 
 }

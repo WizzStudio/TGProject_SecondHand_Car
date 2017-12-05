@@ -40,5 +40,10 @@
 	<form action="admin/tg_carPagerAction.action">
 		<input type="submit" name="提交">
 	</form>
+	<form action="admin/tg_carUpdatePicAction.action" method="post" enctype="multipart/form-data" >
+			id:<input type="text" name="id"/>   
+         	请选择需要上传的文件：<input type="file" id="dofile" name="file"/><br />  
+         	<input type="submit" value="upload"/>
+     </form> >
 </body>
 </html>

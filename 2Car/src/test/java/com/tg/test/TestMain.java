@@ -5,14 +5,20 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.tg.domain.User;
+import com.tg.service.UserService;
 public class TestMain {
 
 	@Test
 	public void testConnection()
 	{
-		String path="applicationContext.xml";
+		System.out.println("haah");
+		String path="application-transaction.xml";
 		ApplicationContext ac = new ClassPathXmlApplicationContext(path);
-		SessionFactory session = (SessionFactory) ac.getBean("sessionFactory");
-		System.out.println(session.openSession());
+		SessionFactory sessionFactory=(SessionFactory)ac.getBean("SessionFactory");
+		sessionFactory.openSession();
+		System.out.println("open");
+		sessionFactory.close();
+		System.out.println("close");
 	}
 }
