@@ -66,7 +66,7 @@ public class TG_CarUpdatePicAction extends ActionSupport {
 		System.out.println(fileFileName);
 		System.out.println(fileContentType);
 		//判断是否是图片
-		String pattern = "image*";
+		String pattern = "image.*";
 		if(!Pattern.matches(pattern, fileContentType))
 		{
 			return ERROR;
