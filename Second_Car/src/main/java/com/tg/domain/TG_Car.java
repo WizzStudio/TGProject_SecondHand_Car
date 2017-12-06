@@ -10,6 +10,18 @@ public class TG_Car {
 	private double price;
 	private Date publishTime;
 	
+	
+	
+	public TG_Car(int cid, String pic, String brand, int year, double price,
+			Date publishTime) {
+		super();
+		this.cid = cid;
+		this.pic = pic;
+		this.brand = brand;
+		this.year = year;
+		this.price = price;
+		this.publishTime = publishTime;
+	}
 	public int getCid() {
 		return cid;
 	}

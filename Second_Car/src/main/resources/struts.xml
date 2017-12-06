@@ -33,10 +33,13 @@
 		</action>
 	</package>
 	<!-- 管理 -->
- 	<package name="admin" namespace="/admin" extends="struts-default">
+ 	<package name="admin" namespace="/admin" extends="json-default">
  		<!-- 按id查询 -->
  		<action name="tg_carSelectByIdAction" class="com.tg.action.TG_CarSelectByIdAction">
- 			<result name="success">/Success.jsp</result>
+ 			<!-- <result name="success">/Success.jsp</result> -->
+ 			<result name="success" type="json">
+ 				<param name="root">list</param>
+ 			</result>
  			<result name="error">/error.jsp</result>
  		</action>
  		<!-- 查询所有 -->
