@@ -25,7 +25,7 @@ public class TG_CarUpdateDaoImp implements TG_CarUpdateDao {
 			car.setCid(id);
 			car.setPrice(price);
 			getSession().update(car);
-			System.out.println("update");
+			System.out.println("update price");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

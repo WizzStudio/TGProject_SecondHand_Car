@@ -9,27 +9,30 @@ import com.tg.service.TG_CarupdateService;
 public class TG_CarUpdatePriceAction extends ActionSupport {
 	@Autowired
 	private TG_CarupdateService tcus;
-	
-	private TG_Car car;
-	public TG_Car getCar() {
-		return car;
+	private int id;
+	private double price;
+
+
+	public int getId() {
+		return id;
 	}
-	public void setCar(TG_Car car) {
-		this.car = car;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 
 	public String execute()throws Exception{
-		double price;
-		int id;
-		
-		price=car.getPrice();
-		id=car.getCid();
-		
-		if(tcus.updatePrice(price, id)){
-			return SUCCESS;
-		}
-		
-		return ERROR;
+		System.out.println(price);
+		System.out.println(id);
+		tcus.updatePrice(price, id);
+		return SUCCESS;
 	}
 }

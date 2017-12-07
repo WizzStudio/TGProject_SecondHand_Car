@@ -44,7 +44,10 @@
  		</action>
  		<!-- 查询所有 -->
  		<action name="tg_carSelectAllAction" class="com.tg.action.TG_CarSelectAllAction">
- 			<result name="success">/Success.jsp</result>
+ 			<!-- <result name="success">/Success.jsp</result> -->
+ 			<result name="success" type="json">
+ 				<param name="root">list</param>
+ 			</result>
  			<result name="error">/error.jsp</result>
  		</action>
  		<!-- 按id删除 -->
@@ -59,6 +62,7 @@
  		</action>
  		<!-- 更新价格 -->
  		<action name="tg_carUpdatePriceAction" class="com.tg.action.TG_CarUpdatePriceAction">
+ 			<!-- <result name="success">/Success.jsp</result> -->
  			<result name="success">/Success.jsp</result>
  			<result name="error">/error.jsp</result>
  		</action>
@@ -75,6 +79,11 @@
  		<!-- 更新图片 -->
  		<action name="tg_carUpdatePicAction" class="com.tg.action.TG_CarUpdatePicAction">
  			<result name="success" type="redirect">/Success.jsp</result>
+ 			<result name="error">/error.jsp</result>
+ 		</action>
+ 		<!-- 加入车 -->
+ 		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddAction">
+ 			<result name="success">/Success.jsp</result>
  			<result name="error">/error.jsp</result>
  		</action>
  	</package>

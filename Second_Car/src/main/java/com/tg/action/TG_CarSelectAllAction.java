@@ -1,5 +1,6 @@
 package com.tg.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,14 @@ public class TG_CarSelectAllAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	
+	private List<TG_Car>cars=new ArrayList<TG_Car>();
+	public List<TG_Car> getCars() {
+		return cars;
+	}
+	public void setCars(List<TG_Car> cars) {
+		this.cars = cars;
+	}
+
 	public String execute()throws Exception{
 		List<TG_Car>cars=tcs.selectAll();
 		

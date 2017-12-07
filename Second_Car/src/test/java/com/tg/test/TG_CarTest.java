@@ -1,9 +1,12 @@
 package com.tg.test;
 
+import java.util.Date;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.tg.domain.TG_Car;
 import com.tg.service.TG_CarService;
 
 public class TG_CarTest {
@@ -32,5 +35,10 @@ public class TG_CarTest {
 	@Test
 	public void test4(){
 		tcs.deleteAll();
+	}
+	@Test
+	public void test5(){
+		TG_Car car3 = new TG_Car(1,"werwer","123",1997,20,new Date());
+		tcs.add(car3);
 	}
 }

@@ -111,7 +111,14 @@
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>1.8.7</version>
-    </dependency> 	
+    </dependency>
+    <!-- jsonlib -->
+    <dependency>
+    	<groupId>net.sf.json-lib</groupId>
+    	<artifactId>json-lib</artifactId>
+    	<version>2.4</version>
+    	<classifier>jdk15</classifier>
+    </dependency>	
   </dependencies>
   <build>
     <plugins>

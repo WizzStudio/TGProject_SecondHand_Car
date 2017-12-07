@@ -23,6 +23,7 @@
      <bean id="TG_CarUpdatePriceAction" class="com.tg.action.TG_CarUpdatePriceAction"/>
      <bean id="TG_CarUpdateBrandAction" class="com.tg.action.TG_CarUpdateBrandAction"/>
      <bean id="TG_CarUpdatePicAction" class="com.tg.action.TG_CarUpdatePicAction"/>
+     <bean id="TG_CarAddAction" class="com.tg.action.TG_CarAddAction"/>
      <!--carpageAction  -->
      <bean id="TG_CarPageAction" class="com.tg.action.TG_CarPagerAction"/>
 </beans>

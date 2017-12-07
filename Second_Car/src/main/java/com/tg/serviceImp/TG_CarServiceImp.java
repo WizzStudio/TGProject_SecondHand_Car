@@ -40,7 +40,7 @@ public class TG_CarServiceImp implements TG_CarService {
 	@Override
 	public boolean add(TG_Car car) {
 		// TODO Auto-generated method stub
-		return false;
+		return tcd.add(car);
 	}
 
 }

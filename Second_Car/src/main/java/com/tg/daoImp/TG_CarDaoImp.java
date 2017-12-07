@@ -18,7 +18,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	//按id删除
+	//deleteById
 	@Override
 	public boolean deleteById(int id) {
 		// TODO Auto-generated method stub
@@ -37,7 +37,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 		System.out.println("delete");
 		return true;
 	}
-	//删除所有
+	//deleteAll
 	@Override
 	public boolean deleteAll() {
 		// TODO Auto-generated method stub
@@ -56,7 +56,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 		return true;
 	}
 
-	//添加新汽车
+	//add
 	@Override
 	public boolean add(TG_Car car) {
 		// TODO Auto-generated method stub
@@ -64,7 +64,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 		return true;
 	}
 
-	//按序号查找
+	//selectById
 	@Override
 	public List selectById(int id) {
 		// TODO Auto-generated method stub
@@ -77,13 +77,13 @@ public class TG_CarDaoImp implements TG_CarDao {
 		tgc_list=query.list();
 		
 		if(tgc_list==null||tgc_list.size()<=0){
-			System.out.println("不存在");
+			System.out.println("锟斤拷锟斤拷锟斤拷");
 			return null;
 		}
 		
 		return tgc_list;
 	}
-	//查询所有
+	//delete all
 	@Override
 	public List selectAll() {
 		// TODO Auto-generated method stub
@@ -95,7 +95,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 		tgc_list=query.list();
 		
 		if(tgc_list==null||tgc_list.size()==0){
-			System.out.println("不存在");
+			System.out.println("error");
 			return null;
 		}
 		

@@ -39,11 +39,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		}
+		function getUpdatePrice()
+		{
+			$.ajax({
+				url:"admin/tg_carUpdatePriceAction.action",
+				type:"post",
+				dataType:"json",
+				data:{
+					id:0,
+					price:10
+				},
+				success:function(data)
+				{
+					if(data==null){
+						alert("success");
+					}
+				},
+				error:function(XMLHttpRequest,textStatus,errorThrown)
+				{
+					alert(textStatus);
+				}
+			});
+		}
+		
+		function getAdd()
+		{
+			$.ajax({
+				url:"admin/tg_carAddAction.action",
+				type:"post",
+				dataType:"json",
+				data:{
+					cid:7,
+					pic:"test",
+					brand:"TGP",
+					year:177,
+					price:70,
+				},
+				success:function(data)
+				{
+					
+				},
+				error:function(XMLHttpRequest,textStatus,errorThrown)
+				{
+					alert(textStatus);
+				}
+			});
+		}
 	</script>
   </head>
   
   <body>
     This is my JSP page. <br>
-    <input type="submit" value="submit" onclick="getData()"/>
+    <form action="admin/tg_carAddAction.action" method="post">
+    	ID:<input type="text" name="cid">
+    	Date:<input type="text" name="publishTime">
+    	<input type="submit" value="submit"/>
+    </form>
+    <input type="submit" value="提交结果" onclick="getUpdatePrice()"/>
+    <input type="submit" value="submit" onclick="getAdd()"/>
   </body>
 </html>
