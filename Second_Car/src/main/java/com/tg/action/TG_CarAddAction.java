@@ -69,7 +69,7 @@ public class TG_CarAddAction extends ActionSupport {
 
 	public String execute()throws Exception{
 		System.out.println(cid);
-		System.out.println(publishTime.toString());
+		System.out.println(publishTime);
 		return SUCCESS;
 	}
 }

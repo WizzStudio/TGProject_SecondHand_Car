@@ -33,7 +33,10 @@
 		</action>
 	</package>
 	<!-- 管理 -->
- 	<package name="admin" namespace="/admin" extends="json-default">
+ 	<package name="admin" namespace="/admin" extends="struts-default">
+ 		<result-types>
+ 			<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+ 		 </result-types>
  		<!-- 按id查询 -->
  		<action name="tg_carSelectByIdAction" class="com.tg.action.TG_CarSelectByIdAction">
  			<!-- <result name="success">/Success.jsp</result> -->
@@ -84,6 +87,7 @@
  		<!-- 加入车 -->
  		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddAction">
  			<result name="success">/Success.jsp</result>
+ 			<result name="input">/error.jsp</result>
  			<result name="error">/error.jsp</result>
  		</action>
  	</package>

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function getData()
 		{
 			$.ajax({
-				url:"admin/tg_carSelectByIdAction.action",
+				url:"admin/tg_carSelectByIdAction",
 				type:"post",
 				dataType:"json",
 				success:function(data)
@@ -72,8 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					cid:7,
 					pic:"test",
 					brand:"TGP",
-					year:177,
+					year:1997,
 					price:70,
+					publishTime:"2017/12/08"
 				},
 				success:function(data)
 				{
@@ -95,7 +96,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	Date:<input type="text" name="publishTime">
     	<input type="submit" value="submit"/>
     </form>
-    <input type="submit" value="提交结果" onclick="getUpdatePrice()"/>
+    <br/>
+    <input type="submit" value="getData" onclick="getData()"/><br>
+    <input type="submit" value="提交结果" onclick="getUpdatePrice()"/><br>
     <input type="submit" value="submit" onclick="getAdd()"/>
   </body>
 </html>
