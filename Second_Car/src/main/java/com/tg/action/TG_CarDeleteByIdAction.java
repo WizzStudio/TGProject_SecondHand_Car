@@ -9,6 +9,24 @@ public class TG_CarDeleteByIdAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	private int id;
+	
+	//è¿”å›çš„ä¿¡æ¯
+	private String msg;
+	private int code;
+	
+	
+	public TG_CarService getTcs() {
+		return tcs;
+	}
+	public void setTcs(TG_CarService tcs) {
+		this.tcs = tcs;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public int getId() {
 		return id;
 	}
@@ -17,9 +35,17 @@ public class TG_CarDeleteByIdAction extends ActionSupport {
 	}
 
 
-	//¸Ğ¾õÕâÀï¿ÉÒÔ¼ÓÈëÒ»¸östruts2µÄvalidate
+	//ï¿½Ğ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ò»ï¿½ï¿½struts2ï¿½ï¿½validate
 	public String execute()throws Exception{
-		tcs.deleteById(id);
-		return SUCCESS;
+		if(tcs.deleteById(id))
+		{
+			code = 1;
+			msg = "åˆ é™¤æˆåŠŸ";
+			return SUCCESS;
+		}else{
+			code = 0;
+			msg = "åˆ é™¤å¤±è´¥";
+			return ERROR;
+		}
 	}
 }

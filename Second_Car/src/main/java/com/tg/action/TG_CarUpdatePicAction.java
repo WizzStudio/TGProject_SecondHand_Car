@@ -15,11 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tg.service.TG_CarupdateService;
+import com.tg.util.ImageUtils;
 
 public class TG_CarUpdatePicAction extends ActionSupport {
 	@Autowired
 	private TG_CarupdateService tcus;
 	
+	private static final String PATH="http://119.23.75.180:8080/SecondCar";
 	private static final String root="/TG_Photo";
 	
 	private int id;
@@ -29,8 +31,23 @@ public class TG_CarUpdatePicAction extends ActionSupport {
 	private String fileFileName;
 	
 	private String fileContentType;
+	
+	private int code;
+	private String msg;
 
 	
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public File getFile() {
 		return file;
 	}
@@ -64,37 +81,20 @@ public class TG_CarUpdatePicAction extends ActionSupport {
 	
 	public String execute()throws Exception{
 		
-		System.out.println(file);
-		System.out.println(fileFileName);
-		System.out.println(fileContentType);
 		//判断是否是图片
 		String pattern = "image.*";
 		if(!Pattern.matches(pattern, fileContentType))
 		{
+			code = 0;
+			msg = "图片类型不正确";
 			return ERROR;
 		}
-		ActionContext.getContext().getSession().put("fileName", fileFileName);
-		String rootName=ServletActionContext.getServletContext().getRealPath(root);
-		String relativePath=root+"/"+fileFileName;
-//		System.out.println(rootName);
-		File targetFile=new File(rootName,fileFileName);
-		
-		
-		//FileUtils.copyFile(file, targetFile);
-		InputStream fin=new FileInputStream(file);
-		byte[] buff=new byte[1024];
-		int len=fin.available();
-//		System.out.println(len);
-		OutputStream fou=new FileOutputStream(targetFile);
-		while((len=fin.read(buff))>0){
-			fou.write(buff, 0, len);
-		}
-		fin.close();                                                               
-		fou.close();
-		
-		
+		String relativePath=PATH+root+"/"+fileFileName;
+		ImageUtils.copyFile(root, fileFileName, file);
 		tcus.updatePic(relativePath, id);
 //		System.out.println("success");
+		code = 1;
+		msg = "更新成功";
 		return SUCCESS;
 	}
 }

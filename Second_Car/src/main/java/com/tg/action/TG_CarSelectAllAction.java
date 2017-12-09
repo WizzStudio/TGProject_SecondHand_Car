@@ -13,7 +13,8 @@ public class TG_CarSelectAllAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	
-	private List<TG_Car>cars=new ArrayList<TG_Car>();
+	private List<TG_Car> cars=new ArrayList<TG_Car>();
+
 	public List<TG_Car> getCars() {
 		return cars;
 	}
@@ -22,12 +23,10 @@ public class TG_CarSelectAllAction extends ActionSupport {
 	}
 
 	public String execute()throws Exception{
-		List<TG_Car>cars=tcs.selectAll();
-		
+		cars=tcs.selectAll();
 		if(cars==null||cars.size()<0){
 			return ERROR;
 		}
-		
 		return SUCCESS;
 		
 	}

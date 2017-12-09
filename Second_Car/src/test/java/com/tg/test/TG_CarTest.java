@@ -38,7 +38,7 @@ public class TG_CarTest {
 	}
 	@Test
 	public void test5(){
-		TG_Car car3 = new TG_Car(1,"werwer","123",1997,20,new Date());
-		tcs.add(car3);
+//		TG_Car car3 = new TG_Car(1,"werwer","123",1997,20,new Date());
+//		tcs.add(car3);
 	}
 }

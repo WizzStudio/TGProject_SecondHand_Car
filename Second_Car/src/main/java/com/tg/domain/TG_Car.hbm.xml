@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-12-1 22:00:35 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.tg.domain.TG_Car" table="TG_CAR">
+    <class name="com.tg.domain.TG_Car" table="TG_CAR" >
         <id name="cid" type="int">
             <column name="CID" />
             <generator class="assigned" />
@@ -20,8 +20,10 @@
         <property name="price" type="double">
             <column name="PRICE" />
         </property>
-        <property name="publishTime" type="java.util.Date">
+       <!--  <property name="publishTime" type="java.util.Date">
             <column name="PUBLISHTIME" />
+        </property> -->
+        <property name="info" type="string" column="info">
         </property>
     </class>
 </hibernate-mapping>

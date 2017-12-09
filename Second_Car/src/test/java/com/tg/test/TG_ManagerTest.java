@@ -17,8 +17,8 @@ public class TG_ManagerTest {
 	}
 	@Test
 	public void test(){
-		String name="Tom";
-		String password="Ted";
+		String name="lxy";
+		String password="lxy";
 		System.out.println(tms.isLogin(name,password));
 	}
 	

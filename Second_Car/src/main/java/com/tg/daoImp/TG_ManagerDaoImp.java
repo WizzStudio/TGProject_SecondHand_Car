@@ -23,14 +23,12 @@ public class TG_ManagerDaoImp implements TG_ManagerDao {
 		// TODO Auto-generated method stub
 		String hql;
 		
-		System.out.println(name);
-		System.out.println(password);
-		hql="from TG_Manager where username=? and password=?";
+		hql="from TG_Manager where userName=? and password=?";
 		Query query=getSession().createQuery(hql);
 		query.setString(0,name);
 		query.setString(1,password);
-		List<TG_Manager>list=query.list();
 		
+		List<TG_Manager> list=query.list();
 		if(list==null||list.size()==0){
 			return false;
 		}

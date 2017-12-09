@@ -14,7 +14,7 @@ public class TG_CarServiceImp implements TG_CarService {
 	private TG_CarDao tcd;
 	
 	@Override
-	public List selectById(int id) {
+	public TG_Car selectById(int id) {
 		// TODO Auto-generated method stub
 		return tcd.selectById(id);
 	}

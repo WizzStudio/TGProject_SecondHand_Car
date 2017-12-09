@@ -8,24 +8,31 @@ public class TG_Car {
 	private String brand;
 	private int year;
 	private double price;
-	private Date publishTime;
+//	private Date publishTime;
+	private String info;	//车辆信息
 	
 	
-	public TG_Car(int cid, String pic, String brand, int year, double price,
-			Date publishTime) {
+	public TG_Car(String pic, String brand, int year, double price,
+			String info) {
 		super();
-		this.cid = cid;
 		this.pic = pic;
 		this.brand = brand;
 		this.year = year;
 		this.price = price;
-		this.publishTime = publishTime;
+		this.info = info;
 	}
+	
 	public TG_Car() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
 	public int getCid() {
 		return cid;
 	}
@@ -56,12 +63,5 @@ public class TG_Car {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Date getPublishTime() {
-		return publishTime;
-	}
-	public void setPublishTime(Date publishTime) {
-		this.publishTime = publishTime;
-	}
-	
 	
 }

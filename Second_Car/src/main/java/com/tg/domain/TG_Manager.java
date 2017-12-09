@@ -7,7 +7,6 @@ public class TG_Manager {
 	private int mid;
 	private String userName;
 	private String password;
-	private String repassword;
 	
 	
 	public int getMid() {
@@ -27,12 +26,6 @@ public class TG_Manager {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getRepassword() {
-		return repassword;
-	}
-	public void setRepassword(String repassword) {
-		this.repassword = repassword;
 	}
 	
 }

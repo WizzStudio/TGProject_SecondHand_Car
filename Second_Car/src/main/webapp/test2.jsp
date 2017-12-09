@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'test.jsp' starting page</title>
+    <title>My JSP 'test2.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,19 +21,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
-		
-		function getData()
+		function add()
 		{
 			$.ajax({
-				url:"admin/tg_carSelectByIdAction.action",
+				url:"admin/tg_carAddAction",
 				type:"post",
 				dataType:"json",
 				data:{
-					id:3
 				},
 				success:function(data)
 				{
-					alert(data.pic);
+					
 				},
 				error:function(XMLHttpRequest,textStatus,errorThrown)
 				{
@@ -41,42 +39,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		}
-		function getUpdatePrice()
-		{
+		function selectAll(){
 			$.ajax({
-				url:"admin/tg_carUpdatePriceAction.action",
+				url:"admin/tg_carSelectAllAction",
 				type:"post",
 				dataType:"json",
 				data:{
-					id:0,
-					price:10
 				},
 				success:function(data)
 				{
-					if(data==null){
-						alert("success");
-					}
-				},
-				error:function(XMLHttpRequest,textStatus,errorThrown)
-				{
-					alert(textStatus);
-				}
-			});
-		}
-		
-		function admin()
-		{
-			$.ajax({
-				url:"tg_managerAction",
-				type:"post",
-				dataType:"json",
-				data:{
-					username:"lxy",
-					password:"lxy"
-				},
-				success:function(data)
-				{
-					alert(data.msg);
+					alert(data);
+					$.each(data,function(n,value){
+						alert(value.pic);
+					});
 				},
 				error:function(XMLHttpRequest,textStatus,errorThrown)
 				{
@@ -85,19 +60,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 		}
 	</script>
+
   </head>
   
   <body>
-    This is my JSP page. <br>
-    <form action="admin/tg_carAddAction.action" method="post">
-    	ID:<input type="text" name="cid">
-    	Date:<input type="text" name="publishTime">
+    <form action="admin/tg_carAddAction" method="post" enctype="multipart/form-data">
+    	<input type="text" name="brand"/><br/>  
+    	<input type="text" name="year"/><br/>  
+    	<input type="text" name="price"/><br/>  
+    	<input type="text" name="info"/><br/>  
+    	<input type="file" name="file"/><br/>  
     	<input type="submit" value="submit"/>
     </form>
-    <br/>
-    <input type="submit" value="getData" onclick="getData()"/><br>
-    <input type="submit" value="提交结果" onclick="getUpdatePrice()"/><br>
-    <input type="submit" value="submit" onclick="getAdd()"/><br/>
-   <input type="submit" value="管理员登录" onclick="admin()"/>
+    
+    <input type="submit" value="提交" onclick="selectAll()">
+    
+    <form action="admin/tg_carUpdatePicAction" method="post" enctype="multipart/form-data">
+    	<input type="text" name="id"/><br/>
+    	<input type="file" name="file"/><br/>  
+    	<input type="submit" value="submit"/>
+    </form>
   </body>
 </html>

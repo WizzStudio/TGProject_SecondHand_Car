@@ -66,7 +66,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 
 	//selectById
 	@Override
-	public List selectById(int id) {
+	public TG_Car selectById(int id) {
 		// TODO Auto-generated method stub
 		String hql;
 		List<TG_Car>tgc_list;
@@ -81,7 +81,7 @@ public class TG_CarDaoImp implements TG_CarDao {
 			return null;
 		}
 		
-		return tgc_list;
+		return tgc_list.get(0);
 	}
 	//delete all
 	@Override

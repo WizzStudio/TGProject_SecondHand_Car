@@ -6,16 +6,13 @@
     <class name="com.tg.domain.TG_Manager" table="TG_MANAGER">
         <id name="mid" type="int">
             <column name="MID" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="userName" type="java.lang.String">
             <column name="USERNAME" />
         </property>
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
-        </property>
-        <property name="repassword" type="java.lang.String">
-            <column name="REPASSWORD" />
         </property>
     </class>
 </hibernate-mapping>
