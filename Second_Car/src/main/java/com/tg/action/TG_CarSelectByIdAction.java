@@ -32,7 +32,7 @@ public class TG_CarSelectByIdAction extends ActionSupport {
 		this.id = id;
 	}
 	
-	public String execute()throws Exception{
+	public String execute() throws Exception{
 		System.out.println(id);
 		car=tcs.selectById(id);
 		System.out.println(car);

@@ -13,6 +13,8 @@ public class TG_CarAddAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	private static final String ROOT ="http://119.23.75.180:8080/SecondCar/TG_Photo";
+	private static final String PATH="/TG_Photo";
+
 	
 	private int cid;
 	private String brand;
@@ -101,6 +103,7 @@ public class TG_CarAddAction extends ActionSupport {
 			msg="文件类型错误";
 		}
 		TG_Car car = new TG_Car(url, brand, year, price, info);
+		ImageUtils.copyFile(PATH, fileFileName, file);
 		if(tcs.add(car))
 		{
 			//添加成功

@@ -60,5 +60,17 @@ public class TG_CarUpdateDaoImp implements TG_CarUpdateDao {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean updateAll(TG_Car car,int id) {
+		TG_Car tg_car = (TG_Car) getSession().get(TG_Car.class,id);
+		if(tg_car==null)
+		{
+			return false;
+		}else{
+			getSession().update(car);
+			return true;
+		}
+	}
 	
 }

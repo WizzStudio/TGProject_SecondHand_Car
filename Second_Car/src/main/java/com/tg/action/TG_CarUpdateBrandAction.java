@@ -9,27 +9,50 @@ import com.tg.service.TG_CarupdateService;
 public class TG_CarUpdateBrandAction extends ActionSupport {
 	@Autowired
 	private TG_CarupdateService tcus;
+	private int id;
+	private String brand;
 	
-	private TG_Car car;
-	public TG_Car getCar() {
-		return car;
-	}
-	public void setCar(TG_Car car) {
-		this.car = car;
+	private int code;
+	private String msg;
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public String execute()throws Exception{
-		String brand;
-		int id;
-		
-		brand=car.getBrand();
-		id=car.getCid();
-		
+	
 		if(tcus.updateBrand(brand, id)){
+			code = 1;
+			msg="更新成功";
 			return SUCCESS;
 		}
-		
+		code = 0;
+		msg = "更新失败";
 		return ERROR;
 	}
 }

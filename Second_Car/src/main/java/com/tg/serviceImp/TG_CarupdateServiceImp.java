@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tg.dao.TG_CarUpdateDao;
+import com.tg.domain.TG_Car;
 import com.tg.service.TG_CarupdateService;
 @Service
 public class TG_CarupdateServiceImp implements TG_CarupdateService {
@@ -26,6 +27,12 @@ public class TG_CarupdateServiceImp implements TG_CarupdateService {
 	public boolean updatePic(String pic, int id) {
 		// TODO Auto-generated method stub
 		return tcud.updatePic(pic, id);
+	}
+
+	@Override
+	public boolean updateAll(TG_Car car, int id) {
+
+		return tcud.updateAll(car, id);
 	}
 
 }

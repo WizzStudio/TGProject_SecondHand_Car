@@ -77,16 +77,32 @@
  				<param name="includeProperties">msg,code</param>
  			</result>
  		</action>
+ 		<!-- 更新车辆所有信息 -->
+ 		<action name="tg_carUpdateAllAction" class="com.tg.action.TG_CarUpdateAllActioin">
+ 			<result name="success" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
+ 			<result name="error" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
+ 		</action>
  		<!-- 更新价格 -->
  		<action name="tg_carUpdatePriceAction" class="com.tg.action.TG_CarUpdatePriceAction">
- 			<!-- <result name="success">/Success.jsp</result> -->
- 			<result name="success">/Success.jsp</result>
- 			<result name="error">/error.jsp</result>
+ 			<result name="success" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
+ 			<result name="error" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
  		</action>
  		<!-- 更新种类 -->
  		<action name="tg_carUpdateBrandAction" class="com.tg.action.TG_CarUpdateBrandAction">
- 			<result name="success" type="redirect">/Success.jsp</result>
- 			<result name="error">/error.jsp</result>
+ 			<result name="success" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
+ 			<result name="error" type="json">
+ 				<param name="includeProperties">msg,code</param>
+ 			</result>
  		</action>
  		<!-- 分页查询 -->
  		<action name="tg_carPagerAction" class="com.tg.action.TG_CarPagerAction">

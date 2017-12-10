@@ -80,5 +80,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="file" name="file"/><br/>  
     	<input type="submit" value="submit"/>
     </form>
+    <form action="admin/tg_carUpdateAllAction" method="post" enctype="multipart/form-data">
+    	<input type="text" name="id"><br/>
+    	<input type="text" name="brand"/><br/>  
+    	<input type="text" name="year"/><br/>  
+    	<input type="text" name="price"/><br/>  
+    	<input type="text" name="info"/><br/>  
+    	<input type="file" name="file"/><br/>  
+    	<input type="submit" value="submit"/>
+    </form>
   </body>
 </html>

@@ -13,6 +13,7 @@ import org.apache.struts2.ServletActionContext;
 
 public class ImageUtils {
 
+	public static final String ROOT ="http://119.23.75.180:8080/SecondCar/TG_Photo";
 	//判断是否是图片
 	public static boolean  isImage(String fileContentType)
 	{

@@ -12,7 +12,22 @@ public class TG_CarUpdatePriceAction extends ActionSupport {
 	private int id;
 	private double price;
 
-
+	private int code;	
+	private String msg;
+	
+	
+	public TG_CarupdateService getTcus() {
+		return tcus;
+	}
+	public void setTcus(TG_CarupdateService tcus) {
+		this.tcus = tcus;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public int getId() {
 		return id;
 	}
@@ -32,7 +47,15 @@ public class TG_CarUpdatePriceAction extends ActionSupport {
 	public String execute()throws Exception{
 		System.out.println(price);
 		System.out.println(id);
-		tcus.updatePrice(price, id);
-		return SUCCESS;
+		if(tcus.updatePrice(price, id))
+		{
+			code = 1;
+			msg = "更新成功";
+			return SUCCESS;
+		}else{
+			code = 0;
+			msg = "更新失败";
+			return ERROR;
+		}
 	}
 }
