@@ -68,7 +68,15 @@ public class TG_CarUpdateDaoImp implements TG_CarUpdateDao {
 		{
 			return false;
 		}else{
-			getSession().update(car);
+			String hql = "update TG_Car car "
+					+ "set car.pic=?,car.brand=?,car.year=?,car.price=?,car.info=?";
+			Query query = getSession().createQuery(hql);
+			query.setString(0, car.getPic());
+			query.setString(1, car.getBrand());
+			query.setInteger(2, car.getYear());
+			query.setDouble(3, car.getPrice());
+			query.setString(4, car.getInfo());
+			query.executeUpdate();
 			return true;
 		}
 	}

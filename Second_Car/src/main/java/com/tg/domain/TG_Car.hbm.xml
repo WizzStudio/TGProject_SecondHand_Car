@@ -4,11 +4,11 @@
 <!-- Generated 2017-12-1 22:00:35 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.tg.domain.TG_Car" table="TG_CAR" >
-        <id name="cid" type="int">
+        <id name="cid" type="int" >
             <column name="CID" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
-        <property name="pic" type="java.lang.String">
+        <property name="pic" type="java.lang.String" >
             <column name="PIC" />
         </property>
         <property name="brand" type="java.lang.String">

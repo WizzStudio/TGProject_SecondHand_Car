@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="text" name="year"/><br/>  
     	<input type="text" name="price"/><br/>  
     	<input type="text" name="info"/><br/>  
-    	<input type="file" name="file"/><br/>  
+    	<input type="file" name="pic"/><br/>  
     	<input type="submit" value="submit"/>
     </form>
   </body>

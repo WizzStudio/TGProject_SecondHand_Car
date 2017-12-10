@@ -1,6 +1,5 @@
 package com.tg.domain;
 
-import java.util.Date;
 
 public class TG_Car {
 	private int cid;

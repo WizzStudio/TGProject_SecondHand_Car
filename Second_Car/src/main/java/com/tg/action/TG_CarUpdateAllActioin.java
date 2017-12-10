@@ -16,7 +16,7 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 	private int id;
 	private File pic;
 	private String picFileName;
-	private String fileContentType;
+	private String picContentType;
 	private String brand;
 	private int year;
 	private double price;
@@ -73,13 +73,15 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 	}
 
 
-	public String getFileContentType() {
-		return fileContentType;
+	
+
+	public String getPicContentType() {
+		return picContentType;
 	}
 
 
-	public void setFileContentType(String fileContentType) {
-		this.fileContentType = fileContentType;
+	public void setPicContentType(String picContentType) {
+		this.picContentType = picContentType;
 	}
 
 
@@ -125,8 +127,8 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 
 	public String execute() throws Exception
 	{
-		String picPath = ImageUtils.ROOT+picFileName;
-		if(!ImageUtils.isImage(fileContentType))
+		String picPath = ImageUtils.ROOT+"/"+picFileName;
+		if(!ImageUtils.isImage(picContentType))
 		{
 			msg = "文件类型不对";
 			code = 0;
