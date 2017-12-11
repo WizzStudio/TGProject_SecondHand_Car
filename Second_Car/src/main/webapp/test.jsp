@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				},
 				success:function(data)
 				{
-					alert(data.pic);
+					alert(data.car.pic);
 				},
 				error:function(XMLHttpRequest,textStatus,errorThrown)
 				{

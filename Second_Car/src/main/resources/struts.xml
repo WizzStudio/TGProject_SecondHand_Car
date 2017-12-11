@@ -46,7 +46,7 @@
  				<param name="root">car</param>
  			</result>
  			<result name="error" type="json">
- 				<param name="root">msg</param>
+ 				<param name="root">car</param>
  			</result>
  		</action>
  		<!-- 查询所有 -->
@@ -56,7 +56,7 @@
  				<param name="root">cars</param>
  			</result>
  			<result name="error" type="json">
- 				<param name="root">code</param>  <!--root参数：从返回结果中按照ognl表达式取出你须要输出的成果  -->
+ 				<param name="root">cars</param>
  			</result>
  		</action>
  		<!-- 按id删除 -->

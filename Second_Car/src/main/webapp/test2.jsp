@@ -48,10 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				},
 				success:function(data)
 				{
-					alert(data);
-					$.each(data,function(n,value){
-						alert(value.pic);
-					});
+					alert(data.msg);
+					
 				},
 				error:function(XMLHttpRequest,textStatus,errorThrown)
 				{
