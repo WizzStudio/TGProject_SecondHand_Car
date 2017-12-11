@@ -1,11 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ehcache>
+<?xml version="1.0" encoding="utf-8"?>
+<ehcache updateCheck="false">
 	<diskStore path="java.io.tmpdir"/>
+
 	<defaultCache
-		maxElementsInMemory="1000"
-		eternal="false"
-		overflowToDisk="true"
-		timeToIdleSeconds="120"
-		timeToLiveSeconds="120"
-		diskPersistent="false"/>
+			maxElementsInMemory="10000"
+			eternal="false"
+			timeToIdleSeconds="120"
+			timeToLiveSeconds="120"
+			overflowToDisk="true"
+			maxElementsOnDisk="10000000"
+			diskPersistent="false"
+			diskExpiryThreadIntervalSeconds="120"
+			memoryStoreEvictionPolicy="LRU"
+	/>
+
+	<cache name="tk.blizz.ssh.model.User"
+		   maxElementsInMemory="1000"
+		   eternal="false"
+		   timeToIdleSeconds="120"
+		   timeToLiveSeconds="120"
+		   overflowToDisk="false"
+		   maxElementsOnDisk="10000000"
+		   diskPersistent="false"
+		   diskExpiryThreadIntervalSeconds="120"
+		   memoryStoreEvictionPolicy="LRU"/>
+
 </ehcache>

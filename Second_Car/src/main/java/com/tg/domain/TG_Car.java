@@ -1,7 +1,9 @@
 package com.tg.domain;
 
+import javax.persistence.Entity;
 
 public class TG_Car {
+
 	private int cid;
 	private String pic;
 	private String brand;

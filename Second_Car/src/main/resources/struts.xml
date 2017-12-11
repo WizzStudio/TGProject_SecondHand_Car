@@ -119,7 +119,7 @@
  			</result>
  		</action>
  		<!-- 加入车 -->
- 		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddAction">
+ 		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddActionAdapter">
  			<result name="success" type="json">
  				<param name="includeProperties">msg,code</param>
  			</result>

@@ -14,5 +14,9 @@ public class Test {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = format.parse(str);
 		System.out.println(date);
+
+		String str1 = "guazi.jpg";
+		String[] arr = str1.split("\\.");
+		System.out.println(arr[1]);
 	}
 }

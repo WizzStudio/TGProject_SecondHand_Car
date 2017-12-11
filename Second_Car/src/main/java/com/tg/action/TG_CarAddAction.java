@@ -25,7 +25,19 @@ public class TG_CarAddAction extends ActionSupport {
 	private File file;
 	private String fileFileName;
 	private String fileContentType;
-	
+
+	private File file1;
+	private String file1FileName;
+	private String file1ContentType;
+
+	private File file2;
+	private String file2FileName;
+	private String file2ContentType;
+
+	private File file3;
+	private String file3FileName;
+	private String file3ContentType;
+
 	//需要返回的值
 	private int code;	//添加成功的状态
 	private String msg;	//添加成功的返回信息
@@ -94,6 +106,79 @@ public class TG_CarAddAction extends ActionSupport {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+
+	public File getFile1() {
+		return file1;
+	}
+
+	public void setFile1(File file1) {
+		this.file1 = file1;
+	}
+
+	public String getFile1FileName() {
+		return file1FileName;
+	}
+
+	public void setFile1FileName(String file1FileName) {
+		this.file1FileName = file1FileName;
+	}
+
+	public String getFile1ContentType() {
+		return file1ContentType;
+	}
+
+	public void setFile1ContentType(String file1ContentType) {
+		this.file1ContentType = file1ContentType;
+	}
+
+	public File getFile2() {
+		return file2;
+	}
+
+	public void setFile2(File file2) {
+		this.file2 = file2;
+	}
+
+	public String getFile2FileName() {
+		return file2FileName;
+	}
+
+	public void setFile2FileName(String file2FileName) {
+		this.file2FileName = file2FileName;
+	}
+
+	public String getFile2ContentType() {
+		return file2ContentType;
+	}
+
+	public void setFile2ContentType(String file2ContentType) {
+		this.file2ContentType = file2ContentType;
+	}
+
+	public File getFile3() {
+		return file3;
+	}
+
+	public void setFile3(File file3) {
+		this.file3 = file3;
+	}
+
+	public String getFile3FileName() {
+		return file3FileName;
+	}
+
+	public void setFile3FileName(String file3FileName) {
+		this.file3FileName = file3FileName;
+	}
+
+	public String getFile3ContentType() {
+		return file3ContentType;
+	}
+
+	public void setFile3ContentType(String file3ContentType) {
+		this.file3ContentType = file3ContentType;
+	}
+
 	public String execute()throws Exception{
 		System.out.println(fileFileName);
 		System.out.println(fileContentType);
@@ -101,9 +186,19 @@ public class TG_CarAddAction extends ActionSupport {
 		if(ImageUtils.isImage(fileContentType)){
 			code = 0;
 			msg="文件类型错误";
+			return ERROR;
 		}
 		TG_Car car = new TG_Car(url, brand, year, price, info);
 		ImageUtils.copyFile(PATH, fileFileName, file);
+		String[] arr = file1FileName.split("\\.");
+		file1FileName = arr[0]+"_1."+arr[1];
+		String[] arr1 = file1FileName.split("\\.");
+		file1FileName = arr1[0]+"_2."+arr1[1];
+		String[] arr2 = file1FileName.split("\\.");
+		file1FileName = arr2[0]+"_3."+arr2[1];
+		ImageUtils.copyFile(PATH, file1FileName, file);
+		ImageUtils.copyFile(PATH, file2FileName, file);
+		ImageUtils.copyFile(PATH, file3FileName, file);
 		if(tcs.add(car))
 		{
 			//添加成功

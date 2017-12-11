@@ -48,7 +48,13 @@
    			</props>
    		</property>
    		<!-- 扫描hbml文件 -->
-   		<property name="mappingLocations" value="classpath:com/tg/domain/*.hbm.xml"></property>
+   		<!--<property name="mappingLocations" value="classpath*:com/tg/domain/*.hbm.xml"></property>-->
+		<property name="mappingResources">
+			<list>
+				<value>TG_Car.hbm.xml</value>
+				<value>TG_Manager.hbm.xml</value>
+			</list>
+		</property>
    	</bean>
    	
    	<!-- 事务管理 -->
