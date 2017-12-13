@@ -1,0 +1,49 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/log4j-api-2.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/struts2-json-plugin-2.5.14.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-lang-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-ehcache-4.2.4.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/javassist-3.15.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/struts2-core-2.5.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-core-4.2.4.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-web-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/ehcache-core-2.4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/freemarker-2.3.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-core-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.38.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-4.0.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-orm-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/mchange-commons-java-0.2.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/ognl-3.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.1.0.GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/c3p0-0.9.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/struts2-spring-plugin-2.5.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/antlr-2.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-lang3-3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.8.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/SecondCar-0.0.1-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

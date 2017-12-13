@@ -14,6 +14,8 @@ import org.apache.struts2.ServletActionContext;
 public class ImageUtils {
 
 	public static final String ROOT ="http://119.23.75.180:8080/SecondCar/TG_Photo";
+	public  static final String PATH = "/TG_Photo";
+
 	//判断是否是图片
 	public static boolean  isImage(String fileContentType)
 	{
@@ -62,4 +64,43 @@ public class ImageUtils {
 			}                                                               
 		
 	}
+
+	public static boolean deleteAllFile(String pic){
+		String rootName = ServletActionContext.getServletContext().getRealPath(PATH);
+		System.out.println(rootName);
+		File file = new File(rootName);
+		File[] tempFiles = file.listFiles();
+		if(null==pic){
+			return true;
+		}
+		String fileName = pic.substring(pic.lastIndexOf('/')+1,pic.length());
+		for(File f:tempFiles){
+			if(f.getName().split("_")[0].equals(fileName.split("_")[0])){
+				f.delete();
+			}else{
+				continue;
+			}
+		}
+		return true;
+	}
+
+	public static boolean deleteFile(String pic){
+		String rootName = ServletActionContext.getServletContext().getRealPath(PATH);
+		System.out.println(rootName);
+		File file = new File(rootName);
+		File[] tempFiles = file.listFiles();
+		if(null==pic){
+			return true;
+		}
+		String fileName = pic.substring(pic.lastIndexOf('/')+1,pic.length());
+		for(File f:tempFiles){
+			if(f.getName().split("\\.")[0].equals(fileName.split("\\.")[0])){
+				f.delete();
+			}else{
+				continue;
+			}
+		}
+		return true;
+	}
+
 }

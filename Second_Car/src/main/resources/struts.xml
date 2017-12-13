@@ -77,6 +77,15 @@
  				<param name="includeProperties">msg,code</param>
  			</result>
  		</action>
+		<!--删除图片-->
+		<action name="tg_carDeletePicAction" class="com.tg.action.TG_CarDeletePicAction">
+			<result name="success" type="json">
+				<param name="includeProperties">msg,code</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">msg,code</param>
+			</result>
+		</action>
  		<!-- 更新车辆所有信息 -->
  		<action name="tg_carUpdateAllAction" class="com.tg.action.TG_CarUpdateAllActioin">
  			<result name="success" type="json">
@@ -119,7 +128,7 @@
  			</result>
  		</action>
  		<!-- 加入车 -->
- 		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddActionAdapter">
+ 		<action name="tg_carAddAction" class="com.tg.action.TG_CarAddAction">
  			<result name="success" type="json">
  				<param name="includeProperties">msg,code</param>
  			</result>

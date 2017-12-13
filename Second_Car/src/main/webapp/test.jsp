@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:"post",
 				dataType:"json",
 				data:{
-					id:3
+					id:20
 				},
 				success:function(data)
 				{

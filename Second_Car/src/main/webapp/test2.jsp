@@ -57,6 +57,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		}
+		function deletePic() {
+			$.ajax({
+                url:"admin/tg_carDeletePicAction",
+                type:"post",
+                dataType:"json",
+                data:{
+                    pic:"http://119.23.75.180:8080/SecondCar/TG_Photo/IGS09651F94M_0.jpg"
+                },
+                success:function(data)
+                {
+                    alert(data.msg);
+
+                },
+                error:function(XMLHttpRequest,textStatus,errorThrown)
+                {
+                    alert(textStatus);
+                }
+			});
+        }
 	</script>
 
   </head>
@@ -70,6 +89,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="file" name="files" multiple/><br/>
     	<input type="submit" value="submit"/>
     </form>
+	<form action="admin/tg_carAddAction" method="post" enctype="multipart/form-data">
+		<input type="text" name="brand"/><br/>
+		<input type="text" name="year"/><br/>
+		<input type="text" name="price"/><br/>
+		<input type="text" name="info"/><br/>
+		<input type="file" name="file"/><br/>
+		<input type="file" name="file1"/><br/>
+		<input type="file" name="file2"/><br/>
+		<input type="file" name="file3"/><br/>
+		<input type="submit" value="submit"/>
+	</form>
     
     <input type="submit" value="提交" onclick="selectAll()">
     
@@ -85,7 +115,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="text" name="price"/><br/>  
     	<input type="text" name="info"/><br/>  
     	<input type="file" name="pic"/><br/>  
+    	<input type="file" name="pic1"/><br/>
+    	<input type="file" name="pic2"/><br/>
+    	<input type="file" name="pic3"/><br/>
     	<input type="submit" value="submit"/>
     </form>
+
+  <input type="submit" value="删除" onclick="deletePic()">
   </body>
 </html>

@@ -6,7 +6,7 @@ public class TG_CarSelectByIdBean {
 
 	private int code;
 	private String msg;
-	private TG_Car car;
+	private TG_CarAdapter car;
 	
 	public int getCode() {
 		return code;
@@ -20,11 +20,12 @@ public class TG_CarSelectByIdBean {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public TG_Car getCar() {
+
+	public TG_CarAdapter getCar() {
 		return car;
 	}
-	public void setCar(TG_Car car) {
+
+	public void setCar(TG_CarAdapter car) {
 		this.car = car;
 	}
-	
 }

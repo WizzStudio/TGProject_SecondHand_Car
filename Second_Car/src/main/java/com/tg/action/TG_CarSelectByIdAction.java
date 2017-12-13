@@ -1,8 +1,12 @@
 package com.tg.action;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
+import com.tg.javabean.TG_CarAdapter;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +19,8 @@ public class TG_CarSelectByIdAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	private int id;
-	
+	private static final String ROOT ="http://119.23.75.180:8080/SecondCar/TG_Photo";
+
 	public int getId() {
 		return id;
 	}
@@ -48,16 +53,8 @@ public class TG_CarSelectByIdAction extends ActionSupport {
 		int code ;
 		TG_Car tCar = new TG_Car();
 		tCar=tcs.selectById(id);
-		//静态数据模拟
-		/*TG_Car car = new TG_Car(1,"werwer","123",1997,20,new Date());
-		TG_Car car1 = new TG_Car(1,"werwer","123",1997,20,new Date());
-		TG_Car car2 = new TG_Car(1,"werwer","123",1997,20,new Date());
-		list.add(car);
-		list.add(car1);
-		list.add(car2);
-		TG_Car car3 = new TG_Car(1,"werwer","123",1997,20,new Date());
-		list.add(car3);*/
-		if(car==null){
+
+		if(tCar==null){
 			msg = "所选内容为空";
 			code = 0;
 			car.setCode(code);
@@ -66,7 +63,23 @@ public class TG_CarSelectByIdAction extends ActionSupport {
 		}
 		car.setCode(1);
 		car.setMsg("成功");
-		car.setCar(tCar);
+		TG_CarAdapter tg_carAdapter = new TG_CarAdapter();
+		List<String> urls = new ArrayList<String>();
+		String url = tCar.getPic().substring(45);
+		String fileName = url.split("_")[0];
+		String path = "/TG_Photo/";
+		String rootName= ServletActionContext.getServletContext().getRealPath(path);
+		File file = new File(rootName);
+		File[] tempList = file.listFiles();
+		for(File f:tempList)
+		{
+			if(Pattern.matches(fileName,f.getName().split("_")[0])){
+				urls.add(ROOT+"/"+f.getName());
+			}
+		}
+		tg_carAdapter.setUrls(urls);
+		tg_carAdapter.setTg_car(tCar);
+		car.setCar(tg_carAdapter);
 		return SUCCESS;
 	}
 }

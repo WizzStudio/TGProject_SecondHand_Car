@@ -39,8 +39,8 @@ public class TG_CarAddAction extends ActionSupport {
 	private String file3ContentType;
 
 	//需要返回的值
-	private int code;	//添加成功的状态
-	private String msg;	//添加成功的返回信息
+	private int code=0;	//添加成功的状态
+	private String msg="请选择图片";	//添加成功的返回信息
 	public String getFileFileName() {
 		return fileFileName;
 	}
@@ -182,25 +182,29 @@ public class TG_CarAddAction extends ActionSupport {
 	public String execute()throws Exception{
 		System.out.println(fileFileName);
 		System.out.println(fileContentType);
+		String[] arr = fileFileName.split("\\.");
+		fileFileName = arr[0]+"_0."+arr[1];
 		String url = ROOT+"/"+fileFileName;
-		if(ImageUtils.isImage(fileContentType)){
+		if(!ImageUtils.isImage(fileContentType)){
 			code = 0;
 			msg="文件类型错误";
 			return ERROR;
 		}
+
 		TG_Car car = new TG_Car(url, brand, year, price, info);
-		ImageUtils.copyFile(PATH, fileFileName, file);
-		String[] arr = file1FileName.split("\\.");
-		file1FileName = arr[0]+"_1."+arr[1];
-		String[] arr1 = file1FileName.split("\\.");
-		file1FileName = arr1[0]+"_2."+arr1[1];
-		String[] arr2 = file1FileName.split("\\.");
-		file1FileName = arr2[0]+"_3."+arr2[1];
-		ImageUtils.copyFile(PATH, file1FileName, file);
-		ImageUtils.copyFile(PATH, file2FileName, file);
-		ImageUtils.copyFile(PATH, file3FileName, file);
+		ImageUtils.deleteAllFile(url);
 		if(tcs.add(car))
 		{
+			String[] arr1 = file1FileName.split("\\.");
+			file1FileName = arr[0]+"_1."+arr1[1];
+			String[] arr2 = file2FileName.split("\\.");
+			file2FileName = arr[0]+"_2."+arr2[1];
+			String[] arr3 = file3FileName.split("\\.");
+			file3FileName = arr[0]+"_3."+arr3[1];
+			ImageUtils.copyFile(PATH, fileFileName, file);
+			ImageUtils.copyFile(PATH, file1FileName, file1);
+			ImageUtils.copyFile(PATH, file2FileName, file2);
+			ImageUtils.copyFile(PATH, file3FileName, file3);
 			//添加成功
 			code = 1;
 			msg = "添加成功";

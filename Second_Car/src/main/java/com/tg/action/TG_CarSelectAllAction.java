@@ -3,6 +3,7 @@ package com.tg.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.tg.javabean.TG_CarAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +15,7 @@ public class TG_CarSelectAllAction extends ActionSupport {
 	@Autowired
 	private TG_CarService tcs;
 	private TG_CarSelectAllBean cars = new TG_CarSelectAllBean();
-	
+
 	private List<TG_Car> list=new ArrayList<TG_Car>();
 	
 	public TG_CarSelectAllBean getCars() {
@@ -37,10 +38,9 @@ public class TG_CarSelectAllAction extends ActionSupport {
 		String msg ;
 		int code;
 		list=tcs.selectAll();
-		if(list==null||list.size()<0){
+		if(list==null||list.size()<0) {
 			code = 0;
 			msg = "查询失败";
-			cars.setCar(list);
 			cars.setCode(code);
 			cars.setMsg(msg);
 			return ERROR;
