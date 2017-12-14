@@ -102,5 +102,21 @@ public class ImageUtils {
 		}
 		return true;
 	}
+	//文件重命名
+	public static void renameFile(String pic,String newName)
+	{
+		String rootName = ServletActionContext.getServletContext().getRealPath(PATH);
+		System.out.println(rootName);
+		File file = new File(rootName);
+		File[] tempFiles = file.listFiles();
+		String fileName = pic.substring(pic.lastIndexOf('/')+1,pic.length());
+		for(File f:tempFiles){
+			if(f.getName().equals(fileName)){
+				f.renameTo(new File(newName));
+			}else{
+				continue;
+			}
+		}
+	}
 
 }

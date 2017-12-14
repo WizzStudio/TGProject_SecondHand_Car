@@ -2,6 +2,7 @@ package com.tg.action;
 
 import java.io.File;
 
+import com.tg.service.TG_CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -12,6 +13,8 @@ import com.tg.util.ImageUtils;
 public class TG_CarUpdateAllActioin extends ActionSupport{
 	@Autowired
 	private TG_CarupdateService tcs;
+	@Autowired
+	private TG_CarService tg_carService;
 	private static final String PATH="/TG_Photo";
 	private int id;
 	private File pic;
@@ -209,45 +212,75 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 	{
 		TG_Car car =null;
 		String[] arr,arr1,arr2,arr3;
+		String fileName = "";
+		String url = tg_carService.selectById(id).getPic();
+		String fn = url.substring(45);
+		if(null==url)
+		{
+			msg = "没有更新的车辆信息";
+			code = 0;
+			return ERROR;
+		}
 		if(null!=pic) {
 			if (!ImageUtils.isImage(picContentType)) {
 				msg = "文件类型不对";
 				code = 0;
 				return ERROR;
 			}
+			ImageUtils.deleteFile(fn);
 			arr= picFileName.split("\\.");
 			picFileName = arr[0] + "_0." + arr[1];
+			fileName = arr[0];
 			String picPath = ImageUtils.ROOT + "/" + picFileName;
 			car = new TG_Car(picPath, brand, year, price, info);
 			ImageUtils.copyFile(PATH, picFileName, pic);
+			if(tcs.updateAll(car, id)){
+				code =1;
+				msg = "更新成功";
+			}else {
+				code = 0;
+				msg = "更新失败";
+				return ERROR;
+			}
+
+		}else{
+			fileName = tg_carService.selectById(id).getPic().substring(45).split("_")[0];
 		}
 		if(null!=pic1){
-			arr= picFileName.split("\\.");
+			String deleteUrl = url.substring(url.lastIndexOf('/')+1).split("_")[0]+"_1.jpg";
+			ImageUtils.deleteFile(deleteUrl);
+			arr= fn.split("_");
 			arr1 = pic1FileName.split("\\.");
 			pic1FileName = arr[0]+"_1."+arr1[1];
 			ImageUtils.copyFile(PATH, pic1FileName, pic1);
+		}else{
+			String tmp = url.substring(45).split("_")[0]+"_1";
+			ImageUtils.renameFile(tmp,fileName+"_1");
 		}
 		if(null!=pic2){
-			arr= picFileName.split("\\.");
+			String deleteUrl = url.substring(url.lastIndexOf('/')+1).split("_")[0]+"_2.jpg";
+			ImageUtils.deleteFile(deleteUrl);
+			arr= fn.split("_");
 			arr2 = pic2FileName.split("\\.");
 			pic2FileName = arr[0]+"_2."+arr2[1];
 			ImageUtils.copyFile(PATH, pic2FileName, pic2);
+		}else{
+			String tmp = url.substring(45).split("_")[0]+"_2";
+			ImageUtils.renameFile(tmp,fileName+"_2");
 		}
 		if(null!=pic3){
-			arr= picFileName.split("\\.");
+			String deleteUrl = url.substring(url.lastIndexOf('/')+1).split("_")[0]+"_3.jpg";
+			ImageUtils.deleteFile(deleteUrl);
+			arr= fn.split("_");
 			arr3 = pic3FileName.split("\\.");
 			pic3FileName = arr[0]+"_3."+arr3[1];
 			ImageUtils.copyFile(PATH, pic3FileName, pic3);
-		}
-		if(tcs.updateAll(car, id))
-		{
-			code =1;
-			msg = "更新成功";
-			return SUCCESS;
 		}else{
-			code = 0;
-			msg = "更新失败";
-			return ERROR;
+			String tmp = url.substring(45).split("_")[0]+"_3";
+			ImageUtils.renameFile(tmp,fileName+"_3");
 		}
+		code = 1;
+		msg = "更新成功";
+		return SUCCESS;
 	}
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-1 22:00:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.tg.domain.TG_CarAdapter" table="TG_CARADAPTER" >
+        <id name="cid" type="int" >
+            <column name="CID" />
+            <generator class="native" />
+        </id>
+        <property name="brand" type="java.lang.String">
+            <column name="BRAND" />
+        </property>
+        <property name="year" type="int">
+            <column name="YEAR" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" />
+        </property>
+       <!--  <property name="publishTime" type="java.util.Date">
+            <column name="PUBLISHTIME" />
+        </property> -->
+        <property name="info" type="string" column="info">
+        </property>
+
+        <!--img  改类与img的一对多的关系-->
+        <set name="img" lazy="true" cascade="save-update">
+            <key column="CID"></key>
+            <one-to-many class="com.tg.domain.TG_Img" />
+        </set>
+    </class>
+</hibernate-mapping>
