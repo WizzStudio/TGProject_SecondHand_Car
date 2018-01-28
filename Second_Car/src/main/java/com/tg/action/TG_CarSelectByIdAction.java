@@ -2,6 +2,7 @@ package com.tg.action;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -77,6 +78,7 @@ public class TG_CarSelectByIdAction extends ActionSupport {
 				urls.add(ROOT+"/"+f.getName());
 			}
 		}
+
 		tg_carAdapter.setUrls(urls);
 		tg_carAdapter.setTg_car(tCar);
 		car.setCar(tg_carAdapter);
