@@ -33,6 +33,8 @@ public class Test {
 		String pic = "http://119.23.75.180:8080/SecondCar/TG_Photo/IGS09651F94M_0.jpg";
 		String fileName = pic.substring(pic.lastIndexOf('/')+1,pic.length());
 		System.out.println(fileName);
+		System.out.println(pic.substring(45));
+		System.out.println(fileName.lastIndexOf('/'));
 		//ImageUtils.deleteFile(pic);
 
 		String l = "1231312_0.jpg";

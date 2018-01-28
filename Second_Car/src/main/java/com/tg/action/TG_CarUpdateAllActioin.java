@@ -3,6 +3,7 @@ package com.tg.action;
 import java.io.File;
 
 import com.tg.service.TG_CarService;
+import com.tg.util.TypeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -30,8 +31,8 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 	private String pic3FileName;
 	private String pic3ContentType;
 	private String brand;
-	private int year;
-	private double price;
+	private String year;
+	private String price;
 	private String info;
 	private String msg;
 	private int code;
@@ -106,26 +107,21 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 		this.brand = brand;
 	}
 
-
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-
 
 	public String getInfo() {
 		return info;
@@ -215,6 +211,14 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 		String fileName = "";
 		String url = tg_carService.selectById(id).getPic();
 		String fn = url.substring(45);
+		String originFileName = fn.substring(fn.lastIndexOf('/')+1,fn.length());
+		int y = Integer.parseInt(year);
+		if(!TypeUtils.isYear(y))	//判断年份是否输入正确
+		{
+			msg = "年份错误";
+			code = 0;
+			return ERROR;
+		}
 		if(null==url)
 		{
 			msg = "没有更新的车辆信息";
@@ -229,10 +233,15 @@ public class TG_CarUpdateAllActioin extends ActionSupport{
 			}
 			ImageUtils.deleteFile(fn);
 			arr= picFileName.split("\\.");
+			/*如果其他三个图片有一个没有改变，戝将原来图片的名称改为第一个改过图片的名称*/
+			if(null==pic1||null==pic2||null==pic3){
+				arr[0] = originFileName.split("_")[0];
+			}
 			picFileName = arr[0] + "_0." + arr[1];
 			fileName = arr[0];
 			String picPath = ImageUtils.ROOT + "/" + picFileName;
-			car = new TG_Car(picPath, brand, year, price, info);
+			double p = Double.parseDouble(price);
+			car = new TG_Car(picPath, brand, y, p, info);
 			ImageUtils.copyFile(PATH, picFileName, pic);
 			if(tcs.updateAll(car, id)){
 				code =1;

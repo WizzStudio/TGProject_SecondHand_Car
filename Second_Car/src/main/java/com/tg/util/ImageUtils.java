@@ -9,12 +9,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.regex.Pattern;
 
+import net.coobird.thumbnailator.Thumbnails;
 import org.apache.struts2.ServletActionContext;
 
 public class ImageUtils {
 
 	public static final String ROOT ="http://119.23.75.180:8080/SecondCar/TG_Photo";
 	public  static final String PATH = "/TG_Photo";
+	private static double SCALE = 0.5f;
+	private  static double QUALITY = 0.5f;
+	private static int WIDTH = 200;
+	private static int HEIGHT = 200;
 
 	//判断是否是图片
 	public static boolean  isImage(String fileContentType)
@@ -27,12 +32,18 @@ public class ImageUtils {
 			return true;
 		}
 	}
+
+	/*进行文件的拷贝*/
 	public static void copyFile(String root,String fileFileName,File file)
 	{
 		String rootName=ServletActionContext.getServletContext().getRealPath(root);
-//		System.out.println(rootName);
+
+		/**
+		 * 使用google API对图片进行压缩
+		 */
+
 		File targetFile=new File(rootName,fileFileName);
-		
+
 		
 		//FileUtils.copyFile(file, targetFile);
 		InputStream fin = null;
@@ -45,6 +56,16 @@ public class ImageUtils {
 			fou =new FileOutputStream(targetFile);
 			while((len=fin.read(buff))>0){
 				fou.write(buff, 0, len);
+			}
+			if(targetFile.length()>40*1024){	//如果图片大小大于40kb，就压缩图片
+				try {
+					Thumbnails.of(targetFile)
+							.scale(SCALE)
+							.outputQuality(QUALITY)
+							.toFile(targetFile);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
