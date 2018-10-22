@@ -13,8 +13,8 @@
   		<!-- 统一编码 -->
   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   		<!-- 统一各框架版本 -->
-  		<struts.version>2.5.10</struts.version>
-  		<spring.version>4.3.8.RELEASE</spring.version>
+<!--   		<struts.version>2.5.10</struts.version> -->
+<!--   		<spring.version>4.3.8.RELEASE</spring.version> -->
   		<hibernate.version>4.2.4.Final</hibernate.version>
   </properties>
   
